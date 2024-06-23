@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic System</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="style/styles.css"> -->
+
+<style>
+    .traffic_layout{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    width: 50% !important;
+    height: 50vh;
+    /* border: 2px solid red; */
+    background-color: #333;
+}
+.traffic_layout div{
+    width: 40% !important;
+    margin-top: 25% !important;
+    margin-left: 30%;
+    height: 7vh;
+    border-radius: 100px;
+    background-color: #000;
+}
+
+.control_layout{
+    border-radius: 30px;
+    margin-top: 4%;
+    width: 100% !important;
+    background-color: #fff !important;
+    height: 10vh !important;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+}
+ul li{
+    list-style: none;
+    padding: 3%;
+    margin-left: -5%;
+}
+
+ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+}
+
+ul li a:hover{
+  text-decoration: none !important;
+}
+
+.timer{
+  width: 45%;
+  height: 10rem;
+  border-radius: 100px;  
+  text-align: center;
+  margin-top: 25%;
+  background-color: #000;
+}
+
+.inner-border{
+  width: 85%;
+  height: 8.5rem;
+  border-radius: 100px;  
+  text-align: center;
+  /* -top: -85% !important; */
+  margin-left: 6%;
+  /* background-color: red; */
+  border: 4px solid #FFA500;
+}
+.timer h3{
+    padding-top: 35%;
+    font-weight: bold;
+    color: #fff;
+    font-size: 40px;
+    /* margin-top: 40% !important; */
+}
+.traffic_buttons{
+    padding: 5%;
+}
+
+.t-red{
+    color: #fff;
+    border: 0 !important;
+    /* padding: 15%; */
+    background-color: red !important;
+}
+
+.t-yellow{
+    margin-left: 5%;
+    color: #fff;
+    border: 0 !important;
+    /* padding: 15%; */
+    background-color: rgb(224, 224, 6) !important;
+}
+
+.t-green{
+    margin-left: 5%;
+    color: #fff;
+    border: 0 !important;
+    /* padding: 15%; */
+    background-color: rgb(42, 224, 6) !important;
+}
+</style>
+</head>
+<body>
+    <!-- [[]][][][][][ Into ][][][][][][] -->
+    <div class="container mt-4">
+        <h2> <img src="images/traficlight.png" alt="" width="30">Traffic System</h2>
+        <p>controls are set for an easy flow of this traffic system</p>
+    </div>
+
+   
+<!-- [][][][][]][][][][][][[ Traffic section ]][][][][][][][][][][][][][]-->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col ">
+                <div class="traffic_layout  shadow-lg" id="traffic-light-1">
+              <br>
+                <div class="light red" ></div>
+                <hr>
+                <div class=" light yellow"></div>
+                <hr>
+                <div class=" light green"></div>
+            </div>
+            </div>
+
+            <div class="col ">
+              <div class="traffic_layout  shadow-lg" id="traffic-light-2">
+            <br>
+              <div class="light red" ></div>
+              <hr>
+              <div class=" light yellow"></div>
+              <hr>
+              <div class=" light green"></div>
+          </div>
+          </div>
+
+          <div class="col ">
+            <div class="traffic_layout  shadow-lg" id="traffic-light-3">
+          <br>
+            <div class="light red" ></div>
+            <hr>
+            <div class=" light yellow"></div>
+            <hr>
+            <div class=" light green"></div>
+        </div>
+        </div>
+        <div class="col ">
+          <div class="traffic_layout  shadow-lg" id="traffic-light-4">
+        <br>
+          <div class="light red" ></div>
+          <hr>
+          <div class=" light yellow"></div>
+          <hr>
+          <div class=" light green"></div>
+      </div>
+      </div>
+         
+        </div>
+    </div>
+</section>
+<!-- [][][][][][][][][][][][][ Controls and Timer ][][][][][][][][]][][][]-->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 ">
+            <h4 class="mt-5"> <img src="images/traficlight.png" alt="" width="30"> Traffic Controlers</h4>
+            <p>contols are set according to the traffic possiton</p>
+
+            <!-- Controls -->
+                <div class="control_layout shadow-lg">
+                    <ul>
+                        <li><a  href="" data-toggle="modal" data-target="#traffic1modal"> <img src="/images/contol.png" alt="" width="40"> Traffic  Light 1</a></li>
+                        <li><a href="" data-toggle="modal" data-target="#traffic2modal"> <img src="/images/contol.png" alt="" width="40"> Traffic  Light 2</a></li>
+                        <li><a href="" data-toggle="modal" data-target="#traffic3modal"> <img src="/images/contol.png" alt="" width="40"> Traffic  Light 3</a></li>
+                        <li><a href="" data-toggle="modal" data-target="#traffic4modal"> <img src="/images/contol.png" alt="" width="40"> Traffic  Light 4</a></li>
+                    </ul>
+                </div>
+               
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="timer shadow-lg">
+                        <div style="height: 10px;"></div>
+                        <div class="inner-border shadow-lg">
+                            
+                            <h3 class="shadow-lg" id="countdown">  60s</h3>
+
+                        </div>
+                    </div>
+                  </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+
+
+<!-- [][][][][][][][][][][]][][][][][][][][][][][][][][ Traffic Modal ]]][][[][][][][][][][][] -->
+
+
+<!-- traffic 1  Modal -->
+<div class="modal fade" id="traffic1modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <span><img src="images/trafficlight.png" alt="" width="2%"></span> -->
+          <h5 class="modal-title text-dark " id="exampleModalLongTitle">Traffic control </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!-- <span aria-hidden="true">&times;</span> -->
+          </button>
+        </div>
+        <div class="modal-body text-dark text-center p-3">
+          <span><img src="images/traficlight.png" alt="" width="20%"></span>
+  
+          <h2 class="text-center text-dark">Traffic Light 1</h2>
+          <p class="text-dark">buttons are made avaliable to control the lights </p>
+            <p>click the buttons to turn on and off any of the lights</p>
+  
+
+          <!-- Buttons For Controling traffic Light -->
+            <div class="traffic_buttons d-flex">
+                <button class="btn  t-red" onclick="turnOnRedLight1()">Turn on/off Red</button>
+                <button class="btn  t-yellow" onclick="turnOnYellowLight1()">Turn on/off Yellow</button>
+                <button class="btn t-green" onclick="turnOnGreenLight1()">Turn on/off Green</button>
+
+
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+  
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  
+<!-- traffic 2  Modal -->
+<div class="modal fade" id="traffic2modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <span><img src="images/trafficlight.png" alt="" width="2%"></span> -->
+          <h5 class="modal-title text-dark " id="exampleModalLongTitle">Traffic control </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!-- <span aria-hidden="true">&times;</span> -->
+          </button>
+        </div>
+        <div class="modal-body text-dark text-center p-3">
+          <span><img src="images/traficlight.png" alt="" width="20%"></span>
+  
+          <h2 class="text-center text-dark">Traffic Light 2</h2>
+          <p class="text-dark">buttons are made avaliable to control the lights </p>
+            <p>click the buttons to turn on and off any of the lights</p>
+  
+
+          <!-- Buttons For Controling traffic Light -->
+            <div class="traffic_buttons d-flex">
+                <button class="btn  t-red"  onclick="turnOnRedLight2()">Turn on/off Red</button>
+                <button class="btn  t-yellow" onclick="turnOnYellowLight2()">Turn on/off Yellow</button>
+                <button class="btn t-green" onclick="turnOnGreenLight2()">Turn on/off Green</button>
+
+
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+  
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- traffic 3  Modal -->
+<div class="modal fade" id="traffic3modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <span><img src="images/trafficlight.png" alt="" width="2%"></span> -->
+          <h5 class="modal-title text-dark " id="exampleModalLongTitle">Traffic control </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!-- <span aria-hidden="true">&times;</span> -->
+          </button>
+        </div>
+        <div class="modal-body text-dark text-center p-3">
+          <span><img src="images/traficlight.png" alt="" width="20%"></span>
+  
+          <h2 class="text-center text-dark">Traffic Light 3</h2>
+          <p class="text-dark">buttons are made avaliable to control the lights </p>
+            <p>click the buttons to turn on and off any of the lights</p>
+  
+
+          <!-- Buttons For Controling traffic Light -->
+            <div class="traffic_buttons d-flex">
+              <button class="btn  t-red"  onclick="turnOnRedLight3()">Turn on/off Red</button>
+              <button class="btn  t-yellow" onclick="turnOnYellowLight3()">Turn on/off Yellow</button>
+              <button class="btn t-green" onclick="turnOnGreenLight3()">Turn on/off Green</button>
+
+
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+  
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- traffic 4  Modal -->
+<div class="modal fade" id="traffic4modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <span><img src="images/trafficlight.png" alt="" width="2%"></span> -->
+          <h5 class="modal-title text-dark " id="exampleModalLongTitle">Traffic control </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!-- <span aria-hidden="true">&times;</span> -->
+          </button>
+        </div>
+        <div class="modal-body text-dark text-center p-3">
+          <span><img src="images/trafficlight.png" alt="" width="20%"></span>
+  
+          <h2 class="text-center text-dark">Traffic Light 4</h2>
+          <p class="text-dark">buttons are made avaliable to control the lights </p>
+            <p>click the buttons to turn on and off any of the lights</p>
+  
+
+          <!-- Buttons For Controling traffic Light -->
+            <div class="traffic_buttons d-flex">
+              <button class="btn  t-red"  onclick="turnOnRedLight4()">Turn on/off Red</button>
+                <button class="btn  t-yellow" onclick="turnOnYellowLight4()">Turn on/off Yellow</button>
+                <button class="btn t-green" onclick="turnOnGreenLight4()">Turn on/off Green</button>
+
+
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+  
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<script>
+    
+  function turnOnRedLight1() {
+    clearLights(1);
+    document.querySelector('#traffic-light-1 .red').style.backgroundColor = 'red';
+    turnOffYellow(1); // turn off yellow for this light
+  }
+
+  function turnOnYellowLight1() {
+    clearLights(1);
+    document.querySelector('#traffic-light-1 .yellow').style.backgroundColor = 'yellow';
+  }
+
+  function turnOnGreenLight1() {
+    clearLights(1);
+    document.querySelector('#traffic-light-1 .green').style.backgroundColor = 'green';
+    turnOnRedForOtherLights(2, 3, 4); // turn on red for other lights
+    turnOffYellowForOtherLights(2, 3, 4); // turn off yellow for other lights
+  }
+
+  function turnOnRedLight2() {
+    clearLights(2);
+    document.querySelector('#traffic-light-2 .red').style.backgroundColor = 'red';
+    turnOffYellow(2); // turn off yellow for this light
+  }
+
+  function turnOnYellowLight2() {
+    clearLights(2);
+    document.querySelector('#traffic-light-2 .yellow').style.backgroundColor = 'yellow';
+  }
+
+  function turnOnGreenLight2() {
+    clearLights(2);
+    document.querySelector('#traffic-light-2 .green').style.backgroundColor = 'green';
+    turnOnRedForOtherLights(1, 3, 4); // turn on red for other lights
+    turnOffYellowForOtherLights(1, 3, 4); // turn off yellow for other lights
+  }
+
+  function turnOnRedLight3() {
+    clearLights(3);
+    document.querySelector('#traffic-light-3 .red').style.backgroundColor = 'red';
+    turnOffYellow(3); // turn off yellow for this light
+  }
+
+  function turnOnYellowLight3() {
+    clearLights(3);
+    document.querySelector('#traffic-light-3 .yellow').style.backgroundColor = 'yellow';
+  }
+
+  function turnOnGreenLight3() {
+    clearLights(3);
+    document.querySelector('#traffic-light-3 .green').style.backgroundColor = 'green';
+    turnOnRedForOtherLights(1, 2, 4); // turn on red for other lights
+    turnOffYellowForOtherLights(1, 2, 4); // turn off yellow for other lights
+  }
+
+  function turnOnRedLight4() {
+    clearLights(4);
+    document.querySelector('#traffic-light-4 .red').style.backgroundColor = 'red';
+    turnOffYellow(4); // turn off yellow for this light
+  }
+
+  function turnOnYellowLight4() {
+    clearLights(4);
+    document.querySelector('#traffic-light-4 .yellow').style.backgroundColor = 'yellow';
+  }
+
+  function turnOnGreenLight4() {
+    clearLights(4);
+    document.querySelector('#traffic-light-4 .green').style.backgroundColor = 'green';
+    turnOnRedForOtherLights(1, 2, 3); // turn on red for other lights
+    turnOffYellowForOtherLights(1, 2, 3); // turn off yellow for other lights
+  }
+
+  function clearLights(lightNumber) {
+    const light = document.querySelector(`#traffic-light-${lightNumber}`);
+    light.querySelector('.red').style.backgroundColor = 'black';
+    light.querySelector('.yellow').style.backgroundColor = 'black';
+    light.querySelector('.green').style.backgroundColor = 'black';
+  }
+
+  function turnOffYellow(lightNumber) {
+    const light = document.querySelector(`#traffic-light-${lightNumber}`);
+    light.querySelector('.yellow').style.backgroundColor = 'black';
+  }
+
+  function turnOnRedForOtherLights(...lightNumbers) {
+    for (const lightNumber of lightNumbers) {
+      const light = document.querySelector(`#traffic-light-${lightNumber}`);
+      light.querySelector('.red').style.backgroundColor = 'red';
+    }
+  }
+
+  function turnOffYellowForOtherLights(...lightNumbers) {
+    for (const lightNumber of lightNumbers) {
+      const light = document.querySelector(`#traffic-light-${lightNumber}`);
+      light.querySelector('.green').style.backgroundColor = 'black';
+      light.querySelector('.yellow').style.backgroundColor = 'black';
+
+    }
+  }
+
+
+
+
+
+  function turnOffYellowForOtherLights(...lightNumbers) {
+
+    let count = 60;
+countdownTimer = setInterval(() => {
+  document.querySelector('#countdown').textContent = count + "s";
+  count--;
+  if (count < 0) {
+    clearInterval(countdownTimer);
+    turnOffYellowForOtherLights(1, 2, 3, 4);
+  } else if (count === 0) {
+    clearInterval(countdownTimer); // Add this line to stop the timer
+    turnOffYellowForOtherLights(1, 2, 3, 4);
+    document.querySelector('#countdown').textContent = "60s";
+    clearInterval(countdownTimer); // Add this line to stop the timer
+  }
+}, 1000);
+
+    for (const lightNumber of lightNumbers) {
+      const light = document.querySelector(`#traffic-light-${lightNumber}`);
+      light.querySelector('.green').style.backgroundColor = 'black';
+      light.querySelector('.yellow').style.backgroundColor = 'black';
+     
+      
+    }
+
+
+
+  }
+
+</script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  
+  
